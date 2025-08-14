@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace repaso1
 {
-    public partial class LibrosCRUD : Form
+    public partial class AutoresCRUD : Form
     {
-        public LibrosCRUD()
+        public AutoresCRUD()
         {
             InitializeComponent();
             CargarDatos();
@@ -23,38 +23,12 @@ namespace repaso1
         {
             using (var db = new MiContexto())
             {
-                var nuevo = new Libro
+                var nuevo = new Autor
                 {
-                    titulo = txtTitulo.Text,
-                    AutorId = Convert.ToInt32(txtAutorId.Text)
+                    Nombre = txtNombre.Text
                 };
 
-                db.Libros.Add(nuevo);
-                db.SaveChanges();
-                CargarDatos();
-
-            }
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            using (var db = new MiContexto())
-            {
-                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["LibroId"].Value);
-                var lib = db.Libros.Find(id);
-                db.Libros.Remove(lib);
-                db.SaveChanges();
-                CargarDatos();
-            }
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            using (var db = new MiContexto())
-            {
-                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["LibroId"].Value);
-                var lib = db.Libros.Find(id);
-                lib.titulo = txtTitulo.Text;
+                db.Autores.Add(nuevo);
                 db.SaveChanges();
                 CargarDatos();
             }
@@ -64,15 +38,46 @@ namespace repaso1
         {
             using (var db = new MiContexto())
             {
-                dataGridView1.DataSource = db.Libros.ToList();
-                dataGridView2.DataSource = db.Autores.ToList();
+                dataGridView1.DataSource = db.Autores.ToList();
             }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            using (var db = new MiContexto())
+            {
+                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["AutorId"].Value);
+
+                var viejo = db.Autores.Find(id);
+
+                db.Autores.Remove(viejo);
+                db.SaveChanges();
+                CargarDatos();
+
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            using (var db = new MiContexto())
+            {
+                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["AutorId"].Value);
+
+                var autoraeditar = db.Autores.Find(id);
+                autoraeditar.Nombre = txtNombre.Text;
+                db.SaveChanges();
+                CargarDatos();
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            txtTitulo.Text = Convert.ToString(dataGridView1.CurrentRow.Cells["Titulo"].Value);
-            txtAutorId.Text = Convert.ToString(dataGridView1.CurrentRow.Cells["AutorId"].Value);
+            txtNombre.Text = Convert.ToString(dataGridView1.CurrentRow.Cells["Nombre"].Value);
+
         }
     }
 }

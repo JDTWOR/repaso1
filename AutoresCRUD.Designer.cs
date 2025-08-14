@@ -1,6 +1,6 @@
 ﻿namespace repaso1
 {
-    partial class LibrosCRUD
+    partial class AutoresCRUD
     {
         /// <summary>
         /// Required designer variable.
@@ -29,100 +29,74 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            txtTitulo = new TextBox();
-            txtAutorId = new TextBox();
-            dataGridView2 = new DataGridView();
             btnCrear = new Button();
             btnEliminar = new Button();
             btnEditar = new Button();
+            txtNombre = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(259, 56);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
+            dataGridView1.Location = new Point(379, 103);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(262, 141);
+            dataGridView1.Size = new Size(240, 150);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
-            // 
-            // txtTitulo
-            // 
-            txtTitulo.Location = new Point(71, 74);
-            txtTitulo.Margin = new Padding(3, 2, 3, 2);
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.PlaceholderText = "titulo libro";
-            txtTitulo.Size = new Size(110, 23);
-            txtTitulo.TabIndex = 1;
-            // 
-            // txtAutorId
-            // 
-            txtAutorId.Location = new Point(71, 118);
-            txtAutorId.Margin = new Padding(3, 2, 3, 2);
-            txtAutorId.Name = "txtAutorId";
-            txtAutorId.PlaceholderText = "id autor";
-            txtAutorId.Size = new Size(110, 23);
-            txtAutorId.TabIndex = 2;
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(568, 56);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(240, 150);
-            dataGridView2.TabIndex = 3;
             // 
             // btnCrear
             // 
-            btnCrear.Location = new Point(91, 197);
+            btnCrear.Location = new Point(91, 300);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(75, 23);
-            btnCrear.TabIndex = 4;
-            btnCrear.Text = "Crear";
+            btnCrear.Size = new Size(83, 41);
+            btnCrear.TabIndex = 1;
+            btnCrear.Text = "Crear Autor";
             btnCrear.UseVisualStyleBackColor = true;
             btnCrear.Click += btnCrear_Click;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(294, 228);
+            btnEliminar.Location = new Point(357, 318);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
-            btnEliminar.TabIndex = 5;
+            btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(425, 228);
+            btnEditar.Location = new Point(520, 318);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
-            btnEditar.TabIndex = 6;
-            btnEditar.Text = "editar";
+            btnEditar.TabIndex = 3;
+            btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
-            // LibrosCRUD
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(91, 141);
+            txtNombre.Name = "txtNombre";
+            txtNombre.PlaceholderText = "Nombre";
+            txtNombre.Size = new Size(100, 23);
+            txtNombre.TabIndex = 4;
+            // 
+            // AutoresCRUD
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(888, 338);
+            ClientSize = new Size(800, 450);
+            Controls.Add(txtNombre);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
             Controls.Add(btnCrear);
-            Controls.Add(dataGridView2);
-            Controls.Add(txtAutorId);
-            Controls.Add(txtTitulo);
             Controls.Add(dataGridView1);
-            Margin = new Padding(3, 2, 3, 2);
-            Name = "LibrosCRUD";
-            Text = "LibrosCRUD";
+            Name = "AutoresCRUD";
+            Text = "AutoresCRUD";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -130,11 +104,9 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private TextBox txtTitulo;
-        private TextBox txtAutorId;
-        private DataGridView dataGridView2;
         private Button btnCrear;
         private Button btnEliminar;
         private Button btnEditar;
+        private TextBox txtNombre;
     }
 }

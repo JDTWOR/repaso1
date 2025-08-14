@@ -13,5 +13,20 @@ namespace repaso1
             genero.Show();
             this.Hide();
         }
+
+        private void btnAutores_Click(object sender, EventArgs e)
+        {
+            AutoresCRUD aut = new AutoresCRUD();
+            aut.Show();
+            this.Hide();
+        }
+
+        private void btnLibros_Click(object sender, EventArgs e)
+        {
+
+            LibrosCRUD lib = new LibrosCRUD();
+            lib.Show();
+            this.Hide();
+        }
     }
 }
